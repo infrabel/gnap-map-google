@@ -1,0 +1,29 @@
+{
+  "name": "gnap-map",
+  "version": "0.1.0",
+  "description": "An add-on library for GNaP which adds functionalities for displaying and managing GeoJson on one or more map visualization libraries.\"",
+  "main": "src/gnap-map.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infrabel/gnap-map.git"
+  },
+  "keywords": [
+    "gnap",
+    "angular",
+    "map",
+    "google",
+    "maps",
+    "gis",
+    "geojson",
+    "kml"
+  ],
+  "author": "Infrabel",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/infrabel/gnap-map/issues"
+  },
+  "homepage": "https://github.com/infrabel/gnap-map#readme"
+}
