@@ -18,8 +18,8 @@
             displayName: 'Google',
             coordinateSystem: 'wgs84',
             defaults: {
-                zoomLevel: null,
-                center: null,
+                zoomLevel: 8,
+                center: { lat: 50.762437, lng: 4.245922 },
                 defaultStyleFunction: defaultStyleFunction
             }
         };
