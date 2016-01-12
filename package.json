@@ -1,14 +1,14 @@
 {
-  "name": "gnap-map",
+  "name": "gnap-map-google",
   "version": "0.1.0",
-  "description": "An add-on library for GNaP which adds functionalities for displaying and managing GeoJson on one or more map visualization libraries.\"",
-  "main": "src/gnap-map.js",
+  "description": "An add-on library for GNaP and GNaP Map, which allows visualization of GeoJson and other data on Google Maps.\"",
+  "main": "dist/gnap-map-google.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infrabel/gnap-map.git"
+    "url": "git+https://github.com/infrabel/gnap-map-google.git"
   },
   "keywords": [
     "gnap",
@@ -23,7 +23,12 @@
   "author": "Infrabel",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/infrabel/gnap-map/issues"
+    "url": "https://github.com/infrabel/gnap-map-google/issues"
   },
-  "homepage": "https://github.com/infrabel/gnap-map#readme"
+  "homepage": "https://github.com/infrabel/gnap-map-google",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-uglify": "^0.11.0"
+  }
 }
