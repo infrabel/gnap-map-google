@@ -70,9 +70,13 @@
             }
 
             function getSearchBoxData(searchString) {
-                scope.customQuery({ searchString: searchString }).then(function (result) {
-                    scope.searchBoxData = result.data.concat(scope.searchBoxData);
-                });
+                var promise = scope.customQuery({ searchString: searchString });
+                
+                if (promise && typeof(promise.then) === 'function') {
+                    promise.then(function (result) {
+                        scope.searchBoxData = result.data.concat(scope.searchBoxData);
+                    });
+                }
 
                 var request = {
                     location: belgium,

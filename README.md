@@ -6,7 +6,7 @@ Allows the [Google Maps API](https://developers.google.com/maps/documentation/ja
 
 #### Installation
 
-- Install this package using `npm install gnap-map-google` in your web project folder.
+- Install this package using `npm install gnap-map-google --save` in your web project folder.
 - Reference dist/gnap-map-google.js or dist/gnap-map-google.min.js in your index.html file, after the gnap-map reference.
 - For this Google technology, you must also additionally reference the Google Maps Javascript API (latest tested version: 3.22), with the additional visualization, drawing and places libraries. You should reference this library before all other scripts, before of the the 'vendor/js/vendor.js' section:  
 ```
