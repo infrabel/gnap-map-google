@@ -12,6 +12,7 @@ Allows the [Google Maps API](https://developers.google.com/maps/documentation/ja
 ```
 <script src="//maps.google.com/maps/api/js?v=3.22&libraries=visualization,drawing,places"></script>
 ```
+- Reference the `gnapMapGoogle` module in your application's module definition (in the GNaP template this is the `app.module.js` file by default).
 
 #### Configuration
 
