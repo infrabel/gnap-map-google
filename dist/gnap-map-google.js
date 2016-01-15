@@ -249,7 +249,7 @@
                 var getStyleFunction = layerProperties.getStyleFunction || defaults.defaultStyleFunction;
                 var iconUrl = layerProperties.iconUrl;
 
-                return getStyleFunction(feature, iconUrl, layerProperties);
+                return getStyleFunction(feature, iconUrl, layerProperties, getZoomLevel());
             }
         }
 
