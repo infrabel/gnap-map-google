@@ -294,7 +294,7 @@
             infoWindow.close();
         }
 
-        function addGeoJsonData(geoJsonData, featureType, redraw) {
+        function addGeoJsonData(geoJsonData, featureType, redraw, featureToTrack) {
             if (!geoJsonData || geoJsonData.features.length === 0) {
                 return;
             }
@@ -327,6 +327,14 @@
             if (copyForLabels) {
                 addLabelGeoJsonData(copyForLabels);
             }
+
+            if (featureToTrack && featureToTrack.type && featureToTrack.type === featureType && featureToTrack.id) {
+                    angular.forEach(geoJsonData.features, function (feature) {
+                        if(feature.id ===  featureToTrack.type.charAt(0).toUpperCase() + featureToTrack.type.slice(1) + '_' + featureToTrack.id) {
+                            setCenter(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+                        }
+                    });
+                }
         }
 
         function addLabelGeoJsonData(labelData) {
@@ -582,9 +590,13 @@
             }
 
             function getSearchBoxData(searchString) {
-                scope.customQuery({ searchString: searchString }).then(function (result) {
-                    scope.searchBoxData = result.data.concat(scope.searchBoxData);
-                });
+                var promise = scope.customQuery({ searchString: searchString });
+                
+                if (promise && typeof(promise.then) === 'function') {
+                    promise.then(function (result) {
+                        scope.searchBoxData = result.data.concat(scope.searchBoxData);
+                    });
+                }
 
                 var request = {
                     location: belgium,
