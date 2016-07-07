@@ -45,6 +45,7 @@
             // Override the (manager's) scope with the actual implementations of these functions
             mapManager.mapView._addGeoJsonData = addGeoJsonData;
             mapManager.mapView._removeGeoJsonData = removeGeoJsonData;
+            mapManager.mapView._centerOnFeature = centerOnFeature;
 
             mapManager.mapView.addCustomKml = addFusionTable;
             mapManager.mapView.removeCustomKml = removeFusionTable;
@@ -245,7 +246,7 @@
             infoWindow.close();
         }
 
-        function addGeoJsonData(geoJsonData, featureType, redraw, featureToTrack) {
+        function addGeoJsonData(geoJsonData, featureType, redraw) {
             if (!geoJsonData || geoJsonData.features.length === 0) {
                 return;
             }
@@ -278,14 +279,6 @@
             if (copyForLabels) {
                 addLabelGeoJsonData(copyForLabels);
             }
-
-            if (featureToTrack && featureToTrack.type && featureToTrack.type === featureType && featureToTrack.id) {
-                    angular.forEach(geoJsonData.features, function (feature) {
-                        if(feature.id ===  featureToTrack.type.charAt(0).toUpperCase() + featureToTrack.type.slice(1) + '_' + featureToTrack.id) {
-                            setCenter(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
-                        }
-                    });
-                }
         }
 
         function addLabelGeoJsonData(labelData) {
@@ -323,6 +316,11 @@
                     }
                 });
             }
+        }
+
+        function centerOnFeature(feature)
+        {
+	        setCenter(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
         }
 
         function addFusionTable(layer) {
