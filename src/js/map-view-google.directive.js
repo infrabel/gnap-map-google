@@ -45,6 +45,7 @@
             // Override the (manager's) scope with the actual implementations of these functions
             mapManager.mapView._addGeoJsonData = addGeoJsonData;
             mapManager.mapView._removeGeoJsonData = removeGeoJsonData;
+            mapManager.mapView._centerOnFeature = centerOnFeature;
 
             mapManager.mapView.addCustomKml = addFusionTable;
             mapManager.mapView.removeCustomKml = removeFusionTable;
@@ -315,6 +316,11 @@
                     }
                 });
             }
+        }
+
+        function centerOnFeature(feature)
+        {
+	        setCenter(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
         }
 
         function addFusionTable(layer) {
