@@ -29,7 +29,7 @@
         return {
             restrict: 'AE',
             template: '' +
-                '<div ui-select ng-model="searchBoxSelectedValue" id="customSearchBox" theme="select2" style="min-width: 300px;" ng-change="searchBoxSelectedValueChanged(searchBoxSelectedValue)">' +
+                '<div ui-select ng-model="searchBoxSelectedValue" id="customSearchBox" theme="select2" style="min-width: 300px;" ng-change="searchBoxSelectedValueChanged(searchBoxSelectedValue, selectionCallback)">' +
                 '   <div ui-select-match placeholder="Search box">{{$select.selected.title || $select.selected}}</div>' +
                 '   <div data-refresh="searchBoxDropdownChanged($select.search)" ui-select-choices repeat="dropdownItem in searchBoxData">' +
                 '       <div ng-bind-html="dropdownItem.title"></div>' +
@@ -38,7 +38,8 @@
                 '</div>',
             link: link,
             scope: {
-                customQuery: '&'
+                customQuery: '&',
+                selectionCallback: '=?'
             }
         };
 
@@ -119,7 +120,7 @@
 
         //////// Private functions
 
-        function searchBoxSelectedValueChanged(newValue) {
+        function searchBoxSelectedValueChanged(newValue, selectionCallback) {
             if (newValue) {
                 if (newValue.type === GOOGLE_RESULT_TYPE && newValue.location) {
                     // A Google result, has a location
@@ -148,6 +149,10 @@
                 } else {
                     // TODO: perhaps display a properly translated 'unfortunately this action is not supported in this map view' notification ?
                     $log.log('Unknown position in selected search result: ' + JSON.stringify(newValue));
+                }
+
+                if (selectionCallback) {
+                    selectionCallback(newValue);
                 }
             }
         }
