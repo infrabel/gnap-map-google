@@ -39,7 +39,7 @@
             link: link,
             scope: {
                 customQuery: '&',
-                selectionCallback: '='
+                selectionCallback: '=?'
             }
         };
 
@@ -151,7 +151,10 @@
                     $log.log('Unknown position in selected search result: ' + JSON.stringify(newValue));
                 }
 
-                selectionCallback(newValue);
+                if(selectionCallback)
+                {
+                    selectionCallback(newValue);
+                }
             }
         }
     }
