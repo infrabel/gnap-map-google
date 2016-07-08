@@ -669,8 +669,7 @@
                     $log.log('Unknown position in selected search result: ' + JSON.stringify(newValue));
                 }
 
-                if(selectionCallback)
-                {
+                if (selectionCallback) {
                     selectionCallback(newValue);
                 }
             }
