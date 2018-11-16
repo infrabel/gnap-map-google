@@ -1,6 +1,6 @@
 {
   "name": "gnap-map-google",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An add-on library for GNaP and GNaP Map, which allows visualization of GeoJson and other data on Google Maps.\"",
   "main": "dist/gnap-map-google.js",
   "repository": {
