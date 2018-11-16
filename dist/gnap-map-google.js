@@ -155,7 +155,8 @@
                             mapTypeIds: mapTypes
                         },
                         overviewMapControl: true,
-                        overviewMapControlOptions: { opened: true }
+                        overviewMapControlOptions: { opened: true },
+                        gestureHandling: 'greedy'
                     });
 
                     mapManager.setMap(map);
